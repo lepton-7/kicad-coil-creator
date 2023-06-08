@@ -17,17 +17,24 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 """
 
 from coilgen import *
+from pathlib import Path
 
 """  ~~~  ENTER PARAMETERS BELOW  ~~~  """
+DATE = "20230608"
 NAME = "COIL_GENERATOR_1"  # Name of footprint
+LIB_DIR = Path("~~~ library directory ~~~")
 DUAL_LAYER = True  # Determines if bottom layer should be used or not
 WRAP_CLOCKWISE = True  # Wraps CCW if false
 N_TURNS = 10  # Must be an int
 TRACE_WIDTH = 0.15  # (mm)
 TRACE_SPACING = 0.15  # (mm)
-VIA_DIAMETER = 0.7  # (mm)
-VIA_DRILL = 0.3  # (mm)
-VIA_OFFSET = 2.8  # (mm)
+
+# These are JLCPCB minimums
+VIA_DIAMETER = 0.4572  # (mm)
+VIA_DRILL = 0.2286  # (mm)
+
+INNER_RAD = 2 # (mm) ~ from the center to the inner edge of the track
+VIA_OFFSET = INNER_RAD - VIA_DIAMETER  # (mm)
 BREAKOUT_LEN = 0.5  # (mm) scalar used to affect location of the breakouts
 TEMPLATE_FILE = "template.kicad_mod"
 TOP_LAYER = "F.Cu"
@@ -145,7 +152,12 @@ if __name__ == '__main__':
         )
 
     substitution_dict = {
+        "DATE": DATE,
         "NAME": NAME,
+        "N_TURNS": N_TURNS,
+        "TRACE_WIDTH": TRACE_WIDTH,
+        "TRACE_SPACING": TRACE_SPACING,
+        "INNER_RAD": INNER_RAD,
         "LINES": ''.join(lines),
         "ARCS": ''.join(arcs),
         "VIAS": ''.join(vias),
@@ -153,10 +165,12 @@ if __name__ == '__main__':
         "TIMESTAMP1": gen_tstamp(),
         "TIMESTAMP2": gen_tstamp(),
         "TIMESTAMP3": gen_tstamp(),
+        "TIMESTAMP4": gen_tstamp(),
     }
 
     template = template.format(**substitution_dict)
 
+    outpath = Path.joinpath(LIB_DIR, )
     with open(f'{NAME}.kicad_mod', 'w') as outfile:
         outfile.write(template)
         outfile.close()
