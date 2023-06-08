@@ -138,7 +138,7 @@ if __name__ == "__main__":
         generate_pad(
             1,
             P2D(radius + 3 * BREAKOUT_LEN + 0.5, BREAKOUT_LEN * -wrap_multiplier),
-            1.2,
+            0.3,
             TRACE_WIDTH,
             TOP_LAYER,
         )
