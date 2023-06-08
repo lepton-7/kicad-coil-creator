@@ -12,6 +12,7 @@ Open main.py, put in the desired specs of your coil (described below), then let 
 |---|---|---|
 |DATE||STRING| Revision date of the footprint |
 |NAME|String| Name of the KiCAD footprint being created |
+|LIB_DIR|String| Path of the library to put the footprint in |
 |DUAL_LAYER|Bool| Whether the coil should be 2 layers of not |
 |WRAP_CLOCKWISE|Bool| Coil wraps clockwise if true, counter-clockwise if false |
 |N_TURNS|Int| Turns the coil should make |
