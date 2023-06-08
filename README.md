@@ -10,9 +10,8 @@ Open main.py, put in the desired specs of your coil (described below), then let 
 
 |Parameter|Type|Description|
 |---|---|---|
-|DATE||STRING| Revision date of the footprint |
 |NAME|String| Name of the KiCAD footprint being created |
-|LIB_DIR|String| Path of the library to put the footprint in |
+|LIB_DIR|String| Where to put the footprint |
 |DUAL_LAYER|Bool| Whether the coil should be 2 layers of not |
 |WRAP_CLOCKWISE|Bool| Coil wraps clockwise if true, counter-clockwise if false |
 |N_TURNS|Int| Turns the coil should make |
@@ -25,7 +24,8 @@ Open main.py, put in the desired specs of your coil (described below), then let 
 |BREAKOUT_LEN|Float| Scalar used to affect location of the breakout traces |
 |TEMPLATE_FILE|String| Template file that the script fills in, default "template.kicad_mod" is included |
 |TOP_LAYER|String| Layer to place the top of the coil onto |
-|BOTTOM_LAYER|String| = Layer to place the bottom of the coil onto |
+|BOTTOM_LAYER|String| Layer to place the bottom of the coil onto |
+|DESCR|String| Footprint description |
 
 ## Useful Links
 
