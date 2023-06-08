@@ -31,3 +31,4 @@ Open main.py, put in the desired specs of your coil (described below), then let 
 
 - [TI's app note on coil design for sensing](https://www.ti.com/lit/an/snoa930c/snoa930c.pdf)
 - [TI's coil design calculator](https://webench.ti.com/wb5/LDC/)
+- [Another pretty good coil design calculator](http://www.circuits.dk/calculator_flat_spiral_coil_inductor.htm)
