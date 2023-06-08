@@ -1,4 +1,4 @@
-(footprint "{NAME}" (version {DATE}) (generator pcbnew)
+(footprint "{NAME}" (version 20221018) (generator pcbnew)
   (layer "F.Cu")
   (descr "{DESCR}")
   (tedit 0)
