@@ -63,7 +63,9 @@ def generate_line(start: P2D, stop: P2D, width: float, layer: str) -> str:
     return line
 
 
-def generate_arc(start: P2D, mid:P2D, stop: P2D, width: float, layer: str, swap_start_stop: bool) -> str:
+def generate_arc(
+    start: P2D, mid: P2D, stop: P2D, width: float, layer: str, swap_start_stop: bool
+) -> str:
     """
     Generates an arc to be placed in the footprint file
     Args:
@@ -79,11 +81,15 @@ def generate_arc(start: P2D, mid:P2D, stop: P2D, width: float, layer: str, swap_
         str: the arc, formatted for use in the footprint file
     """
     if not swap_start_stop:
-        arc = f'  (fp_arc (start {start}) (mid {mid})(end {stop}) (layer "{layer}") (width {width:.3f}) ' \
-              f'({gen_tstamp()}))\n'
+        arc = (
+            f'  (fp_arc (start {start}) (mid {mid})(end {stop}) (layer "{layer}") (width {width:.3f}) '
+            f"({gen_tstamp()}))\n"
+        )
     else:
-        arc = f'  (fp_arc (start {stop}) (mid {mid})(end {start}) (layer "{layer}") (width {width:.3f}) ' \
-              f'({gen_tstamp()}))\n'
+        arc = (
+            f'  (fp_arc (start {stop}) (mid {mid})(end {start}) (layer "{layer}") (width {width:.3f}) '
+            f"({gen_tstamp()}))\n"
+        )
     return arc
 
 
@@ -101,8 +107,10 @@ def generate_pad(pid: int, loc: P2D, width: float, height: float, layer: str) ->
     Returns:
         str: the arc, formatted for use in the footprint file
     """
-    pad = f'  (pad "{pid}" smd roundrect (at {loc}) (size {width} {height}) (layers "{layer}")' \
-          f' (roundrect_rratio 0.25) ({gen_tstamp()}))\n'
+    pad = (
+        f'  (pad "{pid}" smd roundrect (at {loc}) (size {width} {height}) (layers "{layer}")'
+        f" (roundrect_rratio 0.25) ({gen_tstamp()}))\n"
+    )
     return pad
 
 
@@ -117,7 +125,9 @@ def gen_tstamp() -> str:
     return f"tstamp {uuid.uuid4()}"
 
 
-def draw_loop(radius: float, increment: float, width: float, layer: str, wrap_multiplier: int) -> list[str]:
+def draw_loop(
+    radius: float, increment: float, width: float, layer: str, wrap_multiplier: int
+) -> list[str]:
     """
     Creates to arcs (in a loop), starting at radius, and finishing at radius + increment. Also adds increment to radius
     at the end
@@ -140,7 +150,7 @@ def draw_loop(radius: float, increment: float, width: float, layer: str, wrap_mu
             P2D(-radius, 0),
             width,
             layer,
-            bool(wrap_multiplier + 1)
+            bool(wrap_multiplier + 1),
         ),
         generate_arc(
             P2D(-radius, 0),
@@ -148,7 +158,7 @@ def draw_loop(radius: float, increment: float, width: float, layer: str, wrap_mu
             P2D(radius + increment, 0),
             width,
             layer,
-            bool(wrap_multiplier + 1)
-        )
+            bool(wrap_multiplier + 1),
+        ),
     ]
     return arcs

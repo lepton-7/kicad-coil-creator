@@ -22,8 +22,8 @@ from pathlib import Path
 
 
 """  ~~~  ENTER PARAMETERS BELOW  ~~~  """
-NAME = "coil1"  # Name of footprint
-LIB_DIR = Path(r"~~ LIB DIR ~~~")
+NAME = "coil_1"  # Name of footprint
+LIB_DIR = Path(r"DIR")
 DUAL_LAYER = True  # Determines if bottom layer should be used or not
 WRAP_CLOCKWISE = True  # Wraps CCW if false
 N_TURNS = 13  # Must be an int
