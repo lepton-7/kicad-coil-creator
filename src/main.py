@@ -23,7 +23,9 @@ from pathlib import Path
 
 """  ~~~  ENTER PARAMETERS BELOW  ~~~  """
 NAME = "coil_2"  # Name of footprint
-LIB_DIR = Path(r"DIR")
+LIB_DIR = Path(
+    r"DIR"
+)
 DUAL_LAYER = True  # Determines if bottom layer should be used or not
 WRAP_CLOCKWISE = True  # Wraps CCW if false
 N_TURNS = 10  # Must be an int
@@ -34,9 +36,9 @@ TRACE_SPACING = 0.127  # (mm)
 VIA_DIAMETER = 0.4572  # (mm)
 VIA_DRILL = 0.2286  # (mm)
 
-INNER_RAD = 3 / 2  # (mm) ~ from the center to the inner edge of the track
+INNER_RAD = 3 / 2  # (mm) Approximately from the center to the inner edge of the track
 VIA_OFFSET = INNER_RAD - VIA_DIAMETER  # (mm)
-BREAKOUT_LEN = 0.5  # (mm) scalar used to affect location of the breakouts
+BREAKOUT_LEN = 0.3  # (mm) scalar used to affect location of the breakouts
 TEMPLATE_FILE = "template.kicad_mod"
 TOP_LAYER = "F.Cu"
 BOTTOM_LAYER = "B.Cu"
@@ -81,14 +83,16 @@ if __name__ == "__main__":
             TOP_LAYER,
         )
     )
-    lines.append(
-        generate_line(
-            P2D(radius + BREAKOUT_LEN, BREAKOUT_LEN * -wrap_multiplier),
-            P2D(radius + 3 * BREAKOUT_LEN, BREAKOUT_LEN * -wrap_multiplier),
-            TRACE_WIDTH,
-            TOP_LAYER,
-        )
-    )
+
+    # Horizontal line to pad
+    # lines.append(
+    #     generate_line(
+    #         P2D(radius + BREAKOUT_LEN, BREAKOUT_LEN * -wrap_multiplier),
+    #         P2D(radius + 3 * BREAKOUT_LEN, BREAKOUT_LEN * -wrap_multiplier),
+    #         TRACE_WIDTH,
+    #         TOP_LAYER,
+    #     )
+    # )
 
     if DUAL_LAYER:
         lines.append(
@@ -138,7 +142,7 @@ if __name__ == "__main__":
     pads.append(
         generate_circ_pad(
             1,
-            P2D(radius + 3 * BREAKOUT_LEN, BREAKOUT_LEN * -wrap_multiplier),
+            P2D(radius + BREAKOUT_LEN, BREAKOUT_LEN * -wrap_multiplier),
             TRACE_WIDTH,
             TOP_LAYER,
         )
@@ -148,9 +152,9 @@ if __name__ == "__main__":
         pads.append(
             generate_circ_pad(
                 2,
-                P2D(radius + 3 * BREAKOUT_LEN, BREAKOUT_LEN * wrap_multiplier),
+                P2D(radius + BREAKOUT_LEN, BREAKOUT_LEN * wrap_multiplier),
                 TRACE_WIDTH,
-                TOP_LAYER,
+                BOTTOM_LAYER,
             )
         )
 
