@@ -101,14 +101,17 @@ if __name__ == "__main__":
                 BOTTOM_LAYER,
             )
         )
-        lines.append(
-            generate_line(
-                P2D(radius + BREAKOUT_LEN, BREAKOUT_LEN * wrap_multiplier),
-                P2D(radius + 2 * BREAKOUT_LEN, BREAKOUT_LEN * wrap_multiplier),
-                TRACE_WIDTH,
-                BOTTOM_LAYER,
-            )
-        )
+
+        # Horizontal line to pad
+        # lines.append(
+        #     generate_line(
+        #         P2D(radius + BREAKOUT_LEN, BREAKOUT_LEN * wrap_multiplier),
+        #         P2D(radius + 2 * BREAKOUT_LEN, BREAKOUT_LEN * wrap_multiplier),
+        #         TRACE_WIDTH,
+        #         BOTTOM_LAYER,
+        #     )
+        # )
+        
         # draw outer via
         vias.append(
             generate_via(
@@ -119,14 +122,14 @@ if __name__ == "__main__":
         )
 
         # draw last line to pad
-        lines.append(
-            generate_line(
-                P2D(radius + 2 * BREAKOUT_LEN, BREAKOUT_LEN * wrap_multiplier),
-                P2D(radius + 3 * BREAKOUT_LEN, BREAKOUT_LEN * wrap_multiplier),
-                TRACE_WIDTH,
-                TOP_LAYER,
-            )
-        )
+        # lines.append(
+        #     generate_line(
+        #         P2D(radius + 2 * BREAKOUT_LEN, BREAKOUT_LEN * wrap_multiplier),
+        #         P2D(radius + 3 * BREAKOUT_LEN, BREAKOUT_LEN * wrap_multiplier),
+        #         TRACE_WIDTH,
+        #         TOP_LAYER,
+        #     )
+        # )
 
     # connect to pads
 
