@@ -36,8 +36,8 @@ TRACE_SPACING = 0.127  # (mm)
 VIA_DIAMETER = 0.4572  # (mm)
 VIA_DRILL = 0.2286  # (mm)
 
-INNER_RAD = 3 / 2  # (mm) Approximately from the center to the inner edge of the track
-VIA_OFFSET = INNER_RAD - VIA_DIAMETER  # (mm)
+INNER_RAD = 3 / 2  # (mm) From the center to the inner edge of the track
+VIA_OFFSET = INNER_RAD + TRACE_WIDTH - VIA_DIAMETER # (mm)
 BREAKOUT_LEN = 0.3  # (mm) scalar used to affect location of the breakouts
 TEMPLATE_FILE = "template.kicad_mod"
 TOP_LAYER = "F.Cu"
@@ -61,7 +61,7 @@ if __name__ == "__main__":
 
     # build out arcs to spec, until # turns is reached
     wrap_multiplier = 1 if WRAP_CLOCKWISE else -1
-    radius = VIA_OFFSET + VIA_DIAMETER - TRACE_WIDTH / 2
+    radius = INNER_RAD + TRACE_WIDTH / 2
     increment = TRACE_WIDTH + TRACE_SPACING
 
     for arc in range(N_TURNS):
