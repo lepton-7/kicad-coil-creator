@@ -113,6 +113,26 @@ def generate_pad(pid: int, loc: P2D, width: float, height: float, layer: str) ->
     )
     return pad
 
+def generate_circ_pad(pid: int, loc: P2D, diameter: float, layer: str) -> str:
+    """
+    Generates a circular pad to be placed in the footprint file, note: no soldermask layer is added here like you might expect in
+    a typical SMD pad (you could call this func with a different layer if you wanted to though)
+    Args:
+        pid: pad/pin number in KiCAD
+        loc: location of the center of the pad
+        width: width of the pad
+        height: height of the pad
+        layer: pad layer, one of "F.Cu" or "B.Cu"
+
+    Returns:
+        str: the arc, formatted for use in the footprint file
+    """
+    pad = (
+        f'  (pad "{pid}" smd circle (at {loc}) (size {diameter} {diameter}) (layers "{layer}")'
+        f" ({gen_tstamp()}))\n"
+    )
+    return pad
+
 
 def gen_tstamp() -> str:
     """
