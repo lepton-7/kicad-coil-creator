@@ -23,9 +23,7 @@ from pathlib import Path
 
 """  ~~~  ENTER PARAMETERS BELOW  ~~~  """
 NAME = "coil_2"  # Name of footprint
-LIB_DIR = Path(
-    r"DIR"
-)
+LIB_DIR = Path(r"DIR")
 DUAL_LAYER = True  # Determines if bottom layer should be used or not
 WRAP_CLOCKWISE = True  # Wraps CCW if false
 N_TURNS = 10  # Must be an int
@@ -111,15 +109,15 @@ if __name__ == "__main__":
         #         BOTTOM_LAYER,
         #     )
         # )
-        
+
         # draw outer via
-        vias.append(
-            generate_via(
-                P2D(radius + 2 * BREAKOUT_LEN, BREAKOUT_LEN * wrap_multiplier),
-                VIA_DIAMETER,
-                VIA_DRILL,
-            )
-        )
+        # vias.append(
+        #     generate_via(
+        #         P2D(radius + 2 * BREAKOUT_LEN, BREAKOUT_LEN * wrap_multiplier),
+        #         VIA_DIAMETER,
+        #         VIA_DRILL,
+        #     )
+        # )
 
         # draw last line to pad
         # lines.append(
@@ -138,10 +136,9 @@ if __name__ == "__main__":
     # trace does not throw the "The routing start point violates DRC error". I have found that a 0.5mm gap works ok in
     # most scenarios, with a 1.2mm wide pad. Feel free to adjust to your needs, but you've been warned.
     pads.append(
-        generate_pad(
+        generate_circ_pad(
             1,
-            P2D(radius + 3 * BREAKOUT_LEN + 0.5, BREAKOUT_LEN * -wrap_multiplier),
-            0.3,
+            P2D(radius + 3 * BREAKOUT_LEN, BREAKOUT_LEN * -wrap_multiplier),
             TRACE_WIDTH,
             TOP_LAYER,
         )
@@ -149,10 +146,9 @@ if __name__ == "__main__":
 
     if DUAL_LAYER:
         pads.append(
-            generate_pad(
+            generate_circ_pad(
                 2,
-                P2D(radius + 3 * BREAKOUT_LEN + 0.5, BREAKOUT_LEN * wrap_multiplier),
-                0.3,
+                P2D(radius + 3 * BREAKOUT_LEN, BREAKOUT_LEN * wrap_multiplier),
                 TRACE_WIDTH,
                 TOP_LAYER,
             )
