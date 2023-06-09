@@ -113,6 +113,7 @@ def generate_pad(pid: int, loc: P2D, width: float, height: float, layer: str) ->
     )
     return pad
 
+
 def generate_circ_pad(pid: int, loc: P2D, diameter: float, layer: str) -> str:
     """
     Generates a circular pad to be placed in the footprint file, note: no soldermask layer is added here like you might expect in

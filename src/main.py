@@ -23,9 +23,7 @@ from pathlib import Path
 
 """  ~~~  ENTER PARAMETERS BELOW  ~~~  """
 NAME = "coil_2"  # Name of footprint
-LIB_DIR = Path(
-    r"DIR"
-)
+LIB_DIR = Path(r"DIR")
 DUAL_LAYER = True  # Determines if bottom layer should be used or not
 WRAP_CLOCKWISE = True  # Wraps CCW if false
 N_TURNS = 10  # Must be an int
@@ -37,7 +35,7 @@ VIA_DIAMETER = 0.4572  # (mm)
 VIA_DRILL = 0.2286  # (mm)
 
 INNER_RAD = 3 / 2  # (mm) From the center to the inner edge of the track
-VIA_OFFSET = INNER_RAD + TRACE_WIDTH - VIA_DIAMETER # (mm)
+VIA_OFFSET = INNER_RAD + TRACE_WIDTH - VIA_DIAMETER  # (mm)
 BREAKOUT_LEN = 0.3  # (mm) scalar used to affect location of the breakouts
 TEMPLATE_FILE = "template.kicad_mod"
 TOP_LAYER = "F.Cu"
