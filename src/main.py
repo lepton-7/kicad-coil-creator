@@ -41,7 +41,7 @@ TEMPLATE_FILE = "template.kicad_mod"
 TOP_LAYER = "F.Cu"
 BOTTOM_LAYER = "B.Cu"
 
-DESCR = f"{N_TURNS} turns per layer; {TRACE_WIDTH}mm trace width; {TRACE_SPACING}mm trace spacing; {INNER_RAD}mm coil inner radius"
+DESCR = f"{N_TURNS} turns per layer; Dual layer: {str(DUAL_LAYER)}; {TRACE_WIDTH}mm trace width; {TRACE_SPACING}mm trace spacing; {INNER_RAD}mm coil inner radius"
 
 if __name__ == "__main__":
     with open(TEMPLATE_FILE, "r") as file:
