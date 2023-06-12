@@ -25,7 +25,6 @@ Open main.py, put in the desired specs of your coil (described below), then let 
 |TOP_LAYER|String| Layer to place the top of the coil onto |
 |BOTTOM_LAYER|String| Layer to place the bottom of the coil onto |
 |DESCR|String| Footprint description |
-
 |NAME|String| Name of the KiCAD footprint being created. Default based on coil parameters |
 
 ## Useful Links
