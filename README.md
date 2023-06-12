@@ -10,7 +10,6 @@ Open main.py, put in the desired specs of your coil (described below), then let 
 
 |Parameter|Type|Description|
 |---|---|---|
-|NAME|String| Name of the KiCAD footprint being created |
 |LIB_DIR|String| Where to put the footprint |
 |DUAL_LAYER|Bool| Whether the coil should be 2 layers of not |
 |WRAP_CLOCKWISE|Bool| Coil wraps clockwise if true, counter-clockwise if false |
@@ -26,6 +25,8 @@ Open main.py, put in the desired specs of your coil (described below), then let 
 |TOP_LAYER|String| Layer to place the top of the coil onto |
 |BOTTOM_LAYER|String| Layer to place the bottom of the coil onto |
 |DESCR|String| Footprint description |
+
+|NAME|String| Name of the KiCAD footprint being created. Default based on coil parameters |
 
 ## Useful Links
 

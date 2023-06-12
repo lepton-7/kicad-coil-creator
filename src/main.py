@@ -22,7 +22,6 @@ from pathlib import Path
 
 
 """  ~~~  ENTER PARAMETERS BELOW  ~~~  """
-NAME = "coil_2"  # Name of footprint
 LIB_DIR = Path(r"DIR")
 DUAL_LAYER = True  # Determines if bottom layer should be used or not
 WRAP_CLOCKWISE = True  # Wraps CCW if false
@@ -41,7 +40,10 @@ TEMPLATE_FILE = "template.kicad_mod"
 TOP_LAYER = "F.Cu"
 BOTTOM_LAYER = "B.Cu"
 
-DESCR = f"{N_TURNS} turns per layer; Dual layer: {str(DUAL_LAYER)}; {TRACE_WIDTH}mm trace width; {TRACE_SPACING}mm trace spacing; {INNER_RAD}mm coil inner radius"
+DESCR = f"{N_TURNS} turns per layer; {TRACE_WIDTH}mm trace width; {TRACE_SPACING}mm trace spacing; {INNER_RAD}mm coil inner radius; Dual layer: {str(DUAL_LAYER)}"
+
+NAME = f"{N_TURNS}turns_{TRACE_WIDTH}width_{TRACE_SPACING}spacing_{INNER_RAD}rad_"
+NAME = NAME + "dual" if DUAL_LAYER else NAME + "single"
 
 if __name__ == "__main__":
     with open(TEMPLATE_FILE, "r") as file:
